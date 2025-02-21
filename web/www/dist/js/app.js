@@ -720,37 +720,16 @@ _this2.userPublic.color_cross.match(/gffgfghjghj/g)) {
 							this.$dialog.removeClass('bubble_autowidth');
 							this.$dialog.removeClass('bubble_bubble_media_player');
                                                         this.msg = new SpeechSynthesisUtterance();
-                                                        this.synth = window.speechSynthesis;
-                                                        this.voices = window.speechSynthesis.getVoices();
-                                                        var sBrowser, sUsrAg = navigator.userAgent;
 							this.stopSpeaking(),
 							(this.goingToSpeak = !0);
 
-                                                        if (this.userPublic.voice == useSapi5) {
+                                                        if (useSapi5) {
 
-                                                            d.goingToSpeak || this.synth.cancel(), (d.voiceSource = this.synth);  
-                                                        // If a voice has been selected, find the voice and set the
-                                                        // utterance instance's voice attribute.
-                                                        if (document.getElementById('voice').value) {
-                                                            this.msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == document.getElementById('voice').value; })[0];
-                                                        } 
-                                                        if (document.getElementById('voice').value.includes("Google")){
-                                                            this.msg.text = b.toLowerCase();
-                                                        } else { 
-                                                            if (navigator.appVersion.indexOf("Win")!=-1){
-                                                                if (window.navigator.userAgent.indexOf("Edge") > -1){
-                                                                this.msg.text = b.toLowerCase();
-                                                                } else {
-                                                                    this.msg.text = "<pitch absmiddle='"+ this.userPublic.sapi5pitch + "'> " + b.toLowerCase();
-                                                                }
-                                                            } else {
-                                                                this.msg.text = b.toLowerCase();
-                                                            }
-                                                        }
-                                                        this.synth.speak(this.msg); 
-                                                        this.msg.onend = function(event){
-                                                            d.clearDialog();
-                                                        }
+                                                            this.$dialog.css("display", "none");
+                                                            window.speechSynthesis.cancel();
+                                                            playSapi5(b,this.userPublic.pitch / 50,this.userPublic.speed / 50,function(){
+                                                                d.clearDialog();
+                                                            })
 
 							} else if (this.userPublic.voice == "espeak" || espeaktts) {
 
@@ -2549,7 +2528,7 @@ function linkify(text) {
             return (
                 (this.framerate = 1 / 15),
                 (this.spriteSheets = {}),
-				(this.sprites = ["black","grey","white","ghost","blue","boney","cyan","brown","green","lime","magenta","purple","red","orange","yellow","pink","pope","allifek","andrew","andrewgod","andrewpope","announcer","apple","baseball","blocky","book","bow","bubble","clippy","coiny","courtney","daffy","djordje","doctormike","earl","eraser","f1","firey","flower","fuckune","gelatin","genie","genius","golfball","granddad","granddadpope","homer","homestar","icecube","kairu","klasky1","knife","konnor88","leafy","lightbulb","links","luigi","mamachan","mario","marshmallow","match","matt","max","maxmac","mephone4","mephone4s","mem","merlin","needle","nickel","ofek","officelogo","oj","paintbrush","paper","peach","peedy","pen","pencil","pepper","pickle","pin","pm","pm_red","qmark","robby","roblox_noob","rosalina","ruby","salt","seamus","snowball","spongy","steve","suitcase","taco","tennisball","test_tube","timothy","tivo","toad","toadette","unbojih","unbojihface","unbojihhackerman","victor","vvx","white","yellow"]),
+				(this.sprites = ["black","grey","white","ghost","blue","boney","cyan","brown","green","lime","magenta","purple","red","orange","yellow","pink","pope","allifek","andrew","andrewgod","andrewpope","announcer","apple","baseball","blocky","book","bow","bubble","clippy","coiny","courtney","daffy","djordje","doctormike","earl","eraser","f1","firey","flower","fuckune","gelatin","genie","genius","golfball","granddad","granddadpope","homer","homestar","icecube","kairu","klasky1","knife","konnor88","leafy","lightbulb","links","luigi","mamachan","mario","marshmallow","match","matt","max","maxmac","mephone4","mephone4s","mem","merlin","needle","nickel","ofek","officelogo","oj","paintbrush","paper","peach","peedy","pen","pencil","pepper","pickle","pin","pm","pm_red","qmark","robby","roblox_noob","rosalina","ruby","salt","seamus","snowball","sonicfan08","spongy","steve","suitcase","taco","tennisball","test_tube","timothy","tivo","toad","toadette","unbojih","unbojihface","unbojihhackerman","victor","vvx","white","yellow"]),
                 (this.prepSprites = function () {
 					for (var spriteColors = this.sprites, i = 0; i < spriteColors.length; i++) {
 						var color = spriteColors[i],
