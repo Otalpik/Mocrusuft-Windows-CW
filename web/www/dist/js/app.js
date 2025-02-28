@@ -799,10 +799,10 @@ _this2.userPublic.color_cross.match(/gffgfghjghj/g)) {
                                     this.userPublic.a.onended = function() {
                                         self.clearDialog()
                                     }
-                                                                } else if (this.userPublic.voice.match(/polly\:/i)) {
+                                                                } else if (this.userPublic.voice.match(/streamelements\:/i)) {
 
                                                                         var voice2;
-                                    this.userPublic.a = new Audio("https://api.streamelements.com/kappa/v2/speech?text=" + encodeURIComponent(say) + "&voice="+ encodeURIComponent(replaceAll(this.userPublic.voice,"polly:","")));
+                                    this.userPublic.a = new Audio("https://api.streamelements.com/kappa/v2/speech?text=" + encodeURIComponent(say) + "&voice="+ encodeURIComponent(replaceAll(this.userPublic.voice,"streamelements:","")));
                                     this.userPublic.a.play();
                                     this.userPublic.a.onended = function() {
                                         self.clearDialog()
@@ -922,10 +922,10 @@ _this2.userPublic.color_cross.match(/gffgfghjghj/g)) {
                                     this.userPublic.a.onended = function() {
                                         self.clearDialog()
                                     }
-                                                                } else if (this.userPublic.voice.match(/polly\:/i)) {
+                                                                } else if (this.userPublic.voice.match(/streamelements\:/i)) {
 
                                                                         var voice2;
-                                    this.userPublic.a = new Audio("https://api.streamelements.com/kappa/v2/speech?text=" + encodeURIComponent(say) + "&voice="+ encodeURIComponent(replaceAll(this.userPublic.voice,"polly:","")));
+                                    this.userPublic.a = new Audio("https://api.streamelements.com/kappa/v2/speech?text=" + encodeURIComponent(say) + "&voice="+ encodeURIComponent(replaceAll(this.userPublic.voice,"streamelements:","")));
                                     this.userPublic.a.play();
                                     this.userPublic.a.onended = function() {
                                         self.clearDialog()
